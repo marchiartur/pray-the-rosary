@@ -1,0 +1,22 @@
+{
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.tsx": "typescriptreact"
+  },
+  "eslint.debug": true,
+  "eslint.format.enable": true,
+  "eslint.enable": true,
+  "typescript.validate.enable": true,
+  "files.eol": "\n",
+  "editor.formatOnPaste": true,
+  "eslint.lintTask.options": "-c C:/Users/artur/Documents/GitHub/pray-the-rosary/.eslintrc.cjs",
+  "eslint.options": { "overrideConfigFile": "C:/Users/artur/Documents/GitHub/pray-the-rosary/.eslintrc.cjs" },
+  "eslint.validate": ["typescriptreact", "typescript", "javascript", "javascriptreact"],
+  "typescript.format.enable": true,
+}

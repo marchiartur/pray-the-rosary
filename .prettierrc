@@ -1,0 +1,16 @@
+{
+    "printWidth": 80,
+    "tabWidth": 2,
+    "singleQuote": false,
+    "semi": true,
+    "importOrder": [
+        "^react",
+        "^[-a-zA-Z0-9_]+[.]+module[.](css|scss|less)$",
+        "^[-a-zA-Z0-9_]+[.]+(css|scss|less)$",
+        "<THIRD_PARTY_MODULES>",
+        "^src/components"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderGroupNamespaceSpecifiers": true
+}

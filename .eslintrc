@@ -1,8 +1,18 @@
 {
-  "extends": ["next", "prettier"],
+  "extends": [
+    "next",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "root": true,
+  "parserOptions": {
+    "project": ["tsconfig.json"]
+  },
   "rules": {
-    "import/prefer-default-export": "off",
-    "no-console": "warn",
-    "no-var": "error"
+    "react-hooks/exhaustive-deps": "warn"
   }
 }

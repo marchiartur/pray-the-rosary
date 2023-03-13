@@ -1,0 +1,19 @@
+{
+    "locales": [
+        "pt-BR",
+        "en-US",
+        "es"
+    ],
+    "localeDetection": true,
+    "trailingSlash": true,
+    "defaultLocale": "pt-BR",
+    "pages": {
+        "/": [
+            "index"
+        ],
+        "*": [
+            "countries",
+            "prays"
+        ]
+    }
+}

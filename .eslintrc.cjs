@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'standard-with-typescript',
-    'plugin:react-hooks/recommended'
+    'plugin:react-hooks/recommended',
   ],
   overrides: [],
   parserOptions: {
@@ -17,6 +17,8 @@ module.exports = {
   plugins: ['react', 'react-hooks'],
   rules: {
     'react-hooks/exhaustive-deps': 'warn',
-    semi: 'error'
+    semi: 'error',
+    "react/react-in-jsx-scope": 'error',
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 }

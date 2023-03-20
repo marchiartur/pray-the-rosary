@@ -7,12 +7,12 @@ export { default as MainLayout } from './layout'
 
 export { Text } from './typography'
 export {
-  type TextProps,
+  type TextProps
 } from './typography/Text.interface'
 
 export { default as Tabs } from './tabs'
 export {
-  type TabsProps,
+  type TabsProps
 } from './tabs/index.interface'
 
 export {

@@ -1,18 +1,18 @@
-import React, { PropsWithChildren } from 'react';
-import Header from './header';
+import React, { type PropsWithChildren } from 'react'
+import Header from './header'
 
 interface LayoutProps {
-  name?: 'Layout';
+  name?: 'Layout'
 }
 
-const Layout = (props: PropsWithChildren<LayoutProps>) => {
+const Layout: React.FunctionComponent = (props: PropsWithChildren<LayoutProps>): JSX.Element => {
   return (
     <React.Fragment {...props}>
-      <Header></Header>
+      <Header />
 
       {props?.children}
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

@@ -1,19 +1,19 @@
 import React from 'react'
 import { Typography } from 'antd'
-import { TextProps } from './Text.interface';
-import styles from './Text.module.css';
-import classNames from 'classnames';
-import { omit } from 'src/helpers/omit';
+import { type TextProps } from './Text.interface'
+import styles from './Text.module.css'
+import classNames from 'classnames'
+import { omit } from 'src/helpers/omit'
 
-const { Text: AntdText } = Typography;
+const { Text: AntdText } = Typography
 
-const Text = (props: TextProps) => {
-  const { upperCase = false } = props;
+const Text: React.FunctionComponent<TextProps> = (props): JSX.Element => {
+  const { upperCase = false } = props
 
   const classnames = classNames(
     [
       upperCase ? styles.upperCase : '',
-      styles.text,
+      styles.text
     ]
   )
 

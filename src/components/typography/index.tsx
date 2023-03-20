@@ -1,12 +1,9 @@
 export { default as Text } from './Text'
 export {
-  type TextProps,
+  type TextProps
 } from './Text.interface'
 
 export { default as Title } from './Title'
 export {
-  type TitleProps,
+  type TitleProps
 } from './Title.interface'
-
-
-

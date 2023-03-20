@@ -8,7 +8,6 @@ import { Title } from 'src/components/typography'
 import { Row } from 'antd'
 import styles from './index.module.css'
 
-
 const Home: NextPage = () => {
   const { t } = useTranslation(INDEX_PAGE_NAME)
   const pageTitle = t('title')

@@ -1,19 +1,19 @@
 import React from 'react'
 import { Typography } from 'antd'
-import styles from './Text.module.css';
-import classNames from 'classnames';
-import { omit } from 'src/helpers/omit';
-import { TitleProps } from './Title.interface';
+import styles from './Text.module.css'
+import classNames from 'classnames'
+import { omit } from 'src/helpers/omit'
+import { type TitleProps } from './Title.interface'
 
-const { Title: AntdComponent } = Typography;
+const { Title: AntdComponent } = Typography
 
-const Title = (props: TitleProps) => {
-  const { upperCase = false } = props;
+const Title: React.FunctionComponent = (props: TitleProps): JSX.Element => {
+  const { upperCase = false } = props
 
   const classnames = classNames(
     [
       upperCase ? styles.upperCase : '',
-      styles.text,
+      styles.text
     ]
   )
 

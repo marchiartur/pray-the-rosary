@@ -7,12 +7,25 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "react-hooks"],
+  "plugins": [
+    "@typescript-eslint",
+    "react-hooks"
+  ],
   "root": true,
   "parserOptions": {
-    "project": ["tsconfig.json"]
+    "project": [
+      "tsconfig.json"
+    ]
   },
   "rules": {
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "react/react-in-jsx-scope": "error",
+    "@typescript-eslint/no-misused-promises": [
+      "warn",
+      {
+        "checksVoidReturn": false
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 }

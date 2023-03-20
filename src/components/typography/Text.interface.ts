@@ -1,5 +1,6 @@
-import { type TextProps as AntdTextProps } from 'antd/es/typography/Text';
+import { type TextProps as AntdTextProps } from 'antd/es/typography/Text'
 
 export interface TextProps extends AntdTextProps {
-    upperCase?: boolean
+  upperCase?: boolean
+  children?: any | string
 };

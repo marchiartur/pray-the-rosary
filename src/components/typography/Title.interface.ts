@@ -1,5 +1,5 @@
-import { type TitleProps as AntdTitleProps } from 'antd/es/typography/Title';
+import { type TitleProps as AntdTitleProps } from 'antd/es/typography/Title'
 
 export interface TitleProps extends AntdTitleProps {
-    upperCase?: boolean
+  upperCase?: boolean
 };

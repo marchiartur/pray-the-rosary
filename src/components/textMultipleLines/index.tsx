@@ -3,7 +3,7 @@ import { Text } from '../typography'
 
 interface TextMultipleLinesProps {
   text: string
-  className: string
+  className?: string
 }
 
 const TextMultipleLines = (props: TextMultipleLinesProps & React.HTMLAttributes<HTMLDivElement>): JSX.Element => {

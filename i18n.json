@@ -13,7 +13,10 @@
         ],
         "*": [
             "countries",
-            "prays"
+            "prays",
+            "mysteries",
+            "index",
+            "date"
         ]
     }
 }

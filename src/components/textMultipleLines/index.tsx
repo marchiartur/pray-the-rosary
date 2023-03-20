@@ -5,14 +5,14 @@ interface TextMultipleLinesProps {
     text: string;
 }
 
-const TextMultipleLines = (props: TextMultipleLinesProps) => {
-    const { text } = props;
+const TextMultipleLines = (props: TextMultipleLinesProps & React.HTMLAttributes<HTMLDivElement>) => {
+    const { text = '' } = props;
 
-    const lines = text.split('\n');
+    const lines: string[] = text?.split('\n') || [];
 
     return (
-        <div>
-            {lines.map((line, i) => (
+        <div className={props?.className}>
+            {lines?.map((line, i) => (
                 <React.Fragment key={i}>
                     <Text>
                         {line}

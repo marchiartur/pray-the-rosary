@@ -4,7 +4,6 @@ import styles from './index.module.css'
 import { COUNTRIES_NAMESPACE, Countries, type CountryMapProps, type Country } from 'locales'
 import useTranslation from 'next-translate/useTranslation'
 
-
 import { Select, SelectOption, Text, type SelectProps } from 'src/components'
 
 interface SelectCountryProps extends SelectProps {

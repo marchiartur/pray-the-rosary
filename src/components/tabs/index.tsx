@@ -4,8 +4,8 @@ import { TabsProps } from './index.interface';
 
 const Tabs = (props: TabsProps) => {
   const { children } = props;
-  
-    return (
+
+  return (
     <AntdTabs {...props}>{children}</AntdTabs>
   )
 }

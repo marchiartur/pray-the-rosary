@@ -1,0 +1,23 @@
+.row {
+    width: 80vw;
+    margin: auto;
+    justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+    .row {
+        width: 70vw;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .row {
+        width: 60vw;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .row {
+        width: 50vw;
+    }
+}

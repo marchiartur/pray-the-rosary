@@ -1,13 +1,13 @@
 import React from 'react'
 import { Typography } from 'antd'
-import { TextProps } from './Text.interface';
 import styles from './Text.module.css';
 import classNames from 'classnames';
 import { omit } from 'src/helpers/omit';
+import { TitleProps } from './Title.interface';
 
-const { Text: AntdText } = Typography;
+const { Title: AntdComponent } = Typography;
 
-const Text = (props: TextProps) => {
+const Title = (props: TitleProps) => {
   const { upperCase = false } = props;
 
   const classnames = classNames(
@@ -20,8 +20,8 @@ const Text = (props: TextProps) => {
   const newProps = omit(props, ['upperCase'])
 
   return (
-    <AntdText className={classnames} {...newProps}>{props.children}</AntdText>
+    <AntdComponent className={classnames} {...newProps}>{props.children}</AntdComponent>
   )
 }
 
-export default Text
+export default Title

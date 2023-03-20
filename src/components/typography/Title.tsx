@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react'
+import React, { type PropsWithChildren } from 'react'
 import { Typography } from 'antd'
 import styles from './Text.module.css'
 import classNames from 'classnames'

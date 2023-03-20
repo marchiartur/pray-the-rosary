@@ -27,15 +27,21 @@ interface MultipleCollapsiblePraysItem {
 
 interface MultipleCollapsiblePraysProps {
   prays: MultipleCollapsiblePraysItem[]
+  header?: string
 }
 
 const MultipleCollapsiblePrays = (props: MultipleCollapsiblePraysProps) => {
   const {
-    prays
+    prays,
+    header = ''
   } = props;
 
   return (
     <Space direction="vertical" className={styles.space}>
+      <Text>
+        {header}
+      </Text>
+
       {
         prays.map(element => {
           function renderHeader() {
@@ -279,7 +285,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
                           </>
                         ),
                         key: mystery.name + index,
-                        children: <MultipleCollapsiblePrays prays={prays} />,
+                        children: <MultipleCollapsiblePrays header={mystery.event} prays={prays} />,
                       }
                     }
 

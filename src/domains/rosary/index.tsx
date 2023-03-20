@@ -1,11 +1,11 @@
 import useTranslation from 'next-translate/useTranslation'
 import React, { useMemo, useRef } from 'react'
-import { Tabs, Text, TextMultipleLines } from 'src/components'
+import { Text, TextMultipleLines } from 'src/components'
 import { PRAYS_NAMESPACE, Pray, PraysNames, PraysNamespaceAttributes } from '../prays/interface'
 import { format, getDay } from 'date-fns';
 import styles from './index.module.css'
 import { MYSTERIES_NAMESPACE, MysteriesNamespaceAttributes, MysteriesByDay, RosaryMysteriesNames, Mystery, MysteriesSeriesInterface, MysteriesSeries } from 'src/domains/mysteries/interface';
-import { Col, Collapse, Row, Space } from 'antd';
+import { Col, Collapse, Row, Space, Tabs } from 'antd';
 import { CommonNamespaceAttribute, DATE_NAMESPACE, INDEX_PAGE_NAME } from 'src/helpers/namespaces';
 import useDeviceSize from 'src/helpers/useDeviceSize';
 

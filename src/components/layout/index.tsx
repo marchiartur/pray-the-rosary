@@ -5,7 +5,7 @@ interface LayoutProps {
   name?: 'Layout'
 }
 
-const Layout: React.FunctionComponent = (props: PropsWithChildren<LayoutProps>): JSX.Element => {
+const Layout: React.FunctionComponent<PropsWithChildren<LayoutProps>> = (props) => {
   return (
     <React.Fragment {...props}>
       <Header />

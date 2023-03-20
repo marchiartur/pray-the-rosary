@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { Typography } from 'antd'
 import styles from './Text.module.css'
 import classNames from 'classnames'
@@ -7,7 +7,7 @@ import { type TitleProps } from './Title.interface'
 
 const { Title: AntdComponent } = Typography
 
-const Title: React.FunctionComponent = (props: TitleProps): JSX.Element => {
+const Title: React.FunctionComponent<PropsWithChildren<TitleProps>> = (props) => {
   const { upperCase = false } = props
 
   const classnames = classNames(

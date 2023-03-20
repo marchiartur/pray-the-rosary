@@ -10,13 +10,13 @@ import { removeHyphens } from 'src/helpers/string'
 
 const Header: React.FunctionComponent = (): JSX.Element => {
   async function onSelectLanguage (value: string, option: any): Promise<void> {
-    await setLanguage(value)
-
     const locale = getDateFnsLocale(removeHyphens(value))
 
     setDefaultOptions({
       locale
     })
+
+    await setLanguage(value)
   }
 
   const { lang } = useTranslation()

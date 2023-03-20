@@ -1,8 +1,7 @@
 {
     "locales": [
         "pt-BR",
-        "en-US",
-        "es"
+        "en-US"
     ],
     "localeDetection": true,
     "trailingSlash": true,

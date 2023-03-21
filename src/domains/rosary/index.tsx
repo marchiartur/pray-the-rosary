@@ -1,8 +1,9 @@
 import useTranslation from 'next-translate/useTranslation'
-import React, { useMemo, useRef } from 'react'
+import React from 'react'
 import { Text, TextMultipleLines } from 'src/components'
 import { PRAYS_NAMESPACE, Pray, PraysNames, PraysNamespaceAttributes } from '../prays/interface'
 import { format, getDay } from 'date-fns';
+import { Collapse as MobileCollapse } from 'antd-mobile'
 import styles from './index.module.css'
 import { MYSTERIES_NAMESPACE, MysteriesNamespaceAttributes, MysteriesByDay, RosaryMysteriesNames, Mystery, MysteriesSeriesInterface, MysteriesSeries } from 'src/domains/mysteries/interface';
 import { Col, Collapse, Row, Space, Tabs } from 'antd';
@@ -28,12 +29,14 @@ interface MultipleCollapsiblePraysItem {
 interface MultipleCollapsiblePraysProps {
   prays: MultipleCollapsiblePraysItem[]
   header?: string
+  width?: number
 }
 
 const MultipleCollapsiblePrays = (props: MultipleCollapsiblePraysProps) => {
   const {
     prays,
-    header = ''
+    header = '',
+    width = 1000
   } = props;
 
   return (
@@ -43,7 +46,7 @@ const MultipleCollapsiblePrays = (props: MultipleCollapsiblePraysProps) => {
       </Text>
 
       {
-        prays.map(element => {
+        prays.map((element, index) => {
           function renderHeader() {
             const formattedTitle = element.pray.name
 
@@ -54,12 +57,14 @@ const MultipleCollapsiblePrays = (props: MultipleCollapsiblePraysProps) => {
             return formattedTitle
           }
 
+          let CollapseComponent = width < 768 ? MobileCollapse : Collapse
+
           return (
-            <Collapse size="small" key={element.pray.name + Math.random()}>
-              <Collapse.Panel key={element.pray.name} header={renderHeader()}>
+            <CollapseComponent accordion size="small" key={element.pray.name + index}>
+              <CollapseComponent.Panel key={element.pray.name} title={renderHeader()} header={renderHeader()}>
                 <TextMultipleLines text={element.pray.content}></TextMultipleLines>
-              </Collapse.Panel>
-            </Collapse>
+              </CollapseComponent.Panel>
+            </CollapseComponent>
           )
         })
       }
@@ -209,6 +214,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
   const defaultValueMysteriesTabs = MysteriesByDay[weekdayNumber];
   const window = useDeviceSize();
 
+
   return (
     <>
       <Col span={24}>
@@ -225,6 +231,8 @@ const RosaryPray = (props: RosaryPrayProps) => {
           size="small"
           tabBarStyle={{
             justifyContent: "center",
+            flex: "1 1 0%",
+            paddingBottom: 20,
             ...(window?.width >= 768 && { margin: "auto" })
           }}
           items={mysteries.map((value, index) => {
@@ -240,6 +248,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
                 <Tabs
                   tabPosition={window.width >= 1024 ? "left" : "top"}
                   defaultActiveKey="1"
+                  key={`mystery__${index}`}
                   tabBarGutter={window.width >= 1024 ? 0 : undefined}
                   size="small"
                   items={rosaryPrayerList.map((value, index) => {
@@ -262,7 +271,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
                           </>
                         ),
                         key: value.key,
-                        children: <MultipleCollapsiblePrays prays={prays} />,
+                        children: <MultipleCollapsiblePrays width={window?.width} prays={prays} />,
                       };
                     } else if (value.type === Mystery) {
                       const mystery = mysteries.mysteries[mysteriesCount]
@@ -285,7 +294,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
                           </>
                         ),
                         key: mystery.name + index,
-                        children: <MultipleCollapsiblePrays header={mystery.event} prays={prays} />,
+                        children: <MultipleCollapsiblePrays width={window?.width} header={mystery.event} prays={prays} />,
                       }
                     }
 

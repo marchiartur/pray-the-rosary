@@ -10,6 +10,11 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextTranslate = require('next-translate-plugin')
 
+
+const withTM = require('next-transpile-modules')([
+  'antd-mobile',
+]);
+
 const nextConfig = {
   reactStrictMode: true,
   compiler: {
@@ -70,7 +75,7 @@ module.exports = plugins(
             }
           ]
         },
-        async rewrites () {
+        async rewrites() {
           return [
             {
               source: '/service-worker.js',
@@ -82,5 +87,5 @@ module.exports = plugins(
     ],
     withBundleAnalyzer
   ],
-  nextConfig
+  withTM(nextConfig)
 )

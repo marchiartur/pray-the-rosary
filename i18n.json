@@ -3,7 +3,7 @@
         "pt-BR",
         "en-US"
     ],
-    "localeDetection": true,
+    "localeDetection": false,
     "trailingSlash": true,
     "defaultLocale": "pt-BR",
     "pages": {

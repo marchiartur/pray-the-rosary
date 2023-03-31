@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 
 import { ConfigProvider } from 'antd'
 import 'antd/dist/reset.css'
@@ -7,11 +7,26 @@ import ptBR from 'antd/locale/pt_BR'
 import { LanguageCode } from 'locales'
 import useTranslation from 'next-translate/useTranslation'
 import type { AppProps } from 'next/app'
+import dynamic from 'next/dynamic'
+import { getDefaultOptions } from 'date-fns'
+import { setDateFnsDefaultOptions } from 'src/helpers/date'
 
-import { MainLayout } from 'src/components'
+const MainLayout = dynamic(() => import('src/components').then(layout => layout.MainLayout), { ssr: false })
+
+interface DateFnsDefaultOptions {
+  locale?: Object
+}
 
 const MyApp: React.FC<AppProps> = ({ Component }) => {
   const { lang } = useTranslation()
+  const defaultOptionsDateFns: DateFnsDefaultOptions = getDefaultOptions();
+
+  useEffect(() => {
+    if (!defaultOptionsDateFns?.locale) {
+      setDateFnsDefaultOptions(lang)
+    }
+  }, [defaultOptionsDateFns])
+
 
   const memoizedLocale = useMemo(() => {
     switch (lang) {

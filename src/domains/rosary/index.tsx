@@ -8,7 +8,7 @@ import styles from './index.module.css'
 import { MYSTERIES_NAMESPACE, MysteriesNamespaceAttributes, MysteriesByDay, RosaryMysteriesNames, Mystery, MysteriesSeriesInterface, MysteriesSeries } from 'src/domains/mysteries/interface';
 import { Col, Collapse, Row, Space, Tabs } from 'antd';
 import { CommonNamespaceAttribute, DATE_NAMESPACE, INDEX_PAGE_NAME } from 'src/helpers/namespaces';
-import useDeviceSize from 'src/helpers/useDeviceSize';
+import useDeviceSize from 'src/hooks/useDeviceSize';
 
 interface RosaryPrayProps {
   children?: React.ReactNode

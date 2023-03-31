@@ -4,17 +4,12 @@ import SelectCountry from 'src/domains/countries/SelectCountry'
 import styles from './header.module.css'
 import setLanguage from 'next-translate/setLanguage'
 import useTranslation from 'next-translate/useTranslation'
-import { setDefaultOptions } from 'date-fns'
-import { getDateFnsLocale } from 'src/helpers/locale'
-import { removeHyphens } from 'src/helpers/string'
+import { setDateFnsDefaultOptions } from 'src/helpers/date'
+
 
 const Header: React.FunctionComponent = (): JSX.Element => {
-  async function onSelectLanguage (value: string, option: any): Promise<void> {
-    const locale = getDateFnsLocale(removeHyphens(value))
-
-    setDefaultOptions({
-      locale
-    })
+  async function onSelectLanguage(value: string, option: any): Promise<void> {
+    setDateFnsDefaultOptions(value)
 
     await setLanguage(value)
   }

@@ -11,7 +11,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "new-component": "new-component"
+        "new-component": "new-component",
+        "prepare": "husky install"
     },
     "dependencies": {
         "@react-three/drei": "9.5.3",
@@ -23,6 +24,7 @@
         "date-fns": "2.29.3",
         "eslint-plugin-next": "0.0.0",
         "glsl-random": "0.0.5",
+        "husky": "8.0.3",
         "leva": "0.9.23",
         "new-component": "5.0.1",
         "next": "12.1.5",
@@ -60,6 +62,7 @@
         "file-loader": "6.2.0",
         "glslify": "7.1.1",
         "glslify-loader": "2.0.0",
+        "husky": "^8.0.0",
         "next-compose-plugins": "2.2.1",
         "next-translate-plugin": "2.0.2",
         "next-transpile-modules": "10.0.0",

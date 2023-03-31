@@ -11,22 +11,21 @@ import dynamic from 'next/dynamic'
 import { getDefaultOptions } from 'date-fns'
 import { setDateFnsDefaultOptions } from 'src/helpers/date'
 
-const MainLayout = dynamic(() => import('src/components').then(layout => layout.MainLayout), { ssr: false })
+const MainLayout = dynamic(async () => await import('src/components').then(layout => layout.MainLayout), { ssr: false })
 
 interface DateFnsDefaultOptions {
-  locale?: Object
+  locale?: any
 }
 
 const MyApp: React.FC<AppProps> = ({ Component }) => {
   const { lang } = useTranslation()
-  const defaultOptionsDateFns: DateFnsDefaultOptions = getDefaultOptions();
+  const defaultOptionsDateFns: DateFnsDefaultOptions = getDefaultOptions()
 
   useEffect(() => {
-    if (!defaultOptionsDateFns?.locale) {
+    if ((defaultOptionsDateFns?.locale) == null) {
       setDateFnsDefaultOptions(lang)
     }
   }, [defaultOptionsDateFns])
-
 
   const memoizedLocale = useMemo(() => {
     switch (lang) {

@@ -11,7 +11,7 @@ export interface Country {
   language: string
 }
 
-export interface CountryMapProps extends Country { 
+export interface CountryMapProps extends Country {
   Flag: FlagComponent
 }
 

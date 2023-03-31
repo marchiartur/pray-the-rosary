@@ -6,9 +6,8 @@ import setLanguage from 'next-translate/setLanguage'
 import useTranslation from 'next-translate/useTranslation'
 import { setDateFnsDefaultOptions } from 'src/helpers/date'
 
-
 const Header: React.FunctionComponent = (): JSX.Element => {
-  async function onSelectLanguage(value: string, option: any): Promise<void> {
+  async function onSelectLanguage (value: string, option: any): Promise<void> {
     setDateFnsDefaultOptions(value)
 
     await setLanguage(value)

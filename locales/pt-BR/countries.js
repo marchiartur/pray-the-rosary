@@ -1,4 +1,4 @@
 export default {
-    "brazil": "Brasil",
-    "unitedStates": "Estados Unidos"
+  brazil: 'Brasil',
+  unitedStates: 'Estados Unidos'
 }

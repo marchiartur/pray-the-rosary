@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Row className={styles.row}>
+      <Row className={styles.titleRow}>
         <Title level={4}>
           {pageTitle}
         </Title>

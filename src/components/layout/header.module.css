@@ -1,3 +1,12 @@
 .headerRow {
     height: 100%;
+    float: right;
+}
+
+.menu {
+    border-inline-end: none !important
+}
+
+.drawer {
+    width: 100%;
 }

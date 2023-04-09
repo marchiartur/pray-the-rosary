@@ -1,14 +1,14 @@
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
-import { Text, TextMultipleLines } from 'src/components'
-import { PRAYS_NAMESPACE, Pray, PraysNames, PraysNamespaceAttributes } from '../prays/interface'
-import { format, getDay } from 'date-fns';
-import { Collapse as MobileCollapse } from 'antd-mobile'
-import styles from './index.module.css'
-import { MYSTERIES_NAMESPACE, MysteriesNamespaceAttributes, MysteriesByDay, RosaryMysteriesNames, Mystery, MysteriesSeriesInterface, MysteriesSeries } from 'src/domains/mysteries/interface';
-import { Col, Collapse, Row, Space, Tabs } from 'antd';
-import { CommonNamespaceAttribute, DATE_NAMESPACE, INDEX_PAGE_NAME } from 'src/helpers/namespaces';
-import useDeviceSize from 'src/hooks/useDeviceSize';
+import { Text } from 'src/components'
+import { Pray, PraysNames } from '../prays/interface'
+import { format, getDay } from 'date-fns'
+import { MYSTERIES_NAMESPACE, type MysteriesNamespaceAttributes, MysteriesByDay, RosaryMysteriesNames, Mystery, MysteriesSeries } from 'src/domains/mysteries/interface'
+import { Col, Row, Tabs } from 'antd'
+import { type CommonNamespaceAttribute, DATE_NAMESPACE, INDEX_PAGE_NAME } from 'src/helpers/namespaces'
+import useDeviceSize from 'src/hooks/useDeviceSize'
+import MultipleCollapsiblePrays from 'src/components/multipleCollapsiblePrays'
+import DesktopOrMobileTabs from 'src/components/desktopOrMobileTabs'
 
 interface RosaryPrayProps {
   children?: React.ReactNode
@@ -21,59 +21,8 @@ interface RosaryPrayItem {
   collapsible: RosaryPrayItem[]
 }
 
-interface MultipleCollapsiblePraysItem {
-  pray: Pray;
-  times: number
-}
-
-interface MultipleCollapsiblePraysProps {
-  prays: MultipleCollapsiblePraysItem[]
-  header?: string
-  width?: number
-}
-
-const MultipleCollapsiblePrays = (props: MultipleCollapsiblePraysProps) => {
-  const {
-    prays,
-    header = '',
-    width = 1000
-  } = props;
-
-  return (
-    <Space direction="vertical" className={styles.space}>
-      <Text>
-        {header}
-      </Text>
-
-      {
-        prays.map((element, index) => {
-          function renderHeader() {
-            const formattedTitle = element.pray.name
-
-            if (element.times > 1) {
-              return formattedTitle + ' ' + `(${element.times}x)`
-            }
-
-            return formattedTitle
-          }
-
-          let CollapseComponent = width < 768 ? MobileCollapse : Collapse
-
-          return (
-            <CollapseComponent accordion size="small" key={element.pray.name + index}>
-              <CollapseComponent.Panel key={element.pray.name} title={renderHeader()} header={renderHeader()}>
-                <TextMultipleLines text={element.pray.content}></TextMultipleLines>
-              </CollapseComponent.Panel>
-            </CollapseComponent>
-          )
-        })
-      }
-    </Space>
-  )
-}
-
-const RosaryPray = (props: RosaryPrayProps) => {
-  const currentDate = new Date();
+const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
+  const currentDate = new Date()
   const weekdayName = format(currentDate, 'EEEE')
   const weekdayNumber = getDay(currentDate)
 
@@ -101,7 +50,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
       times: 1,
       type: Pray,
       collapsible: []
-    },
+    }
   ]
 
   const INITIAL_PRAYS = [
@@ -134,7 +83,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
       times: 1,
       type: Pray,
       collapsible: []
-    },
+    }
   ]
 
   const FINAL_PRAYS = [
@@ -169,51 +118,57 @@ const RosaryPray = (props: RosaryPrayProps) => {
       key: 'first',
       times: 1,
       type: Mystery,
-      collapsible: ROSARY_DECADE,
+      collapsible: ROSARY_DECADE
     },
     {
       key: 'second',
       times: 1,
       type: Mystery,
-      collapsible: ROSARY_DECADE,
+      collapsible: ROSARY_DECADE
     },
     {
       key: 'third',
       times: 1,
       type: Mystery,
-      collapsible: ROSARY_DECADE,
+      collapsible: ROSARY_DECADE
     },
     {
       key: 'fourth',
       times: 1,
       type: Mystery,
-      collapsible: ROSARY_DECADE,
+      collapsible: ROSARY_DECADE
     },
     {
       key: 'fifth',
       times: 1,
       type: Mystery,
-      collapsible: ROSARY_DECADE,
+      collapsible: ROSARY_DECADE
     },
     {
       key: 'finalPraysLabel',
       times: 1,
       type: Pray,
       collapsible: FINAL_PRAYS
-    },
+    }
   ]
 
   const mysteries: string[] = Object.values(RosaryMysteriesNames)
 
-  const { t } = useTranslation(INDEX_PAGE_NAME);
+  const { t } = useTranslation(INDEX_PAGE_NAME)
 
-  const prayNamespaceKeys: PraysNamespaceAttributes = t(`${PRAYS_NAMESPACE}:.`, { count: 1 }, { returnObjects: true })
-  const mysteriesNamespaceKeys: MysteriesNamespaceAttributes = t(`${MYSTERIES_NAMESPACE}:.`, { count: 1 }, { returnObjects: true });
-  const date: CommonNamespaceAttribute = t(`${DATE_NAMESPACE}:.`, { count: 1 }, { returnObjects: true });
+  const mysteriesNamespaceKeys: MysteriesNamespaceAttributes = t(`${MYSTERIES_NAMESPACE}:.`, { count: 1 }, { returnObjects: true })
+  const date: CommonNamespaceAttribute = t(`${DATE_NAMESPACE}:.`, { count: 1 }, { returnObjects: true })
 
-  const defaultValueMysteriesTabs = MysteriesByDay[weekdayNumber];
-  const window = useDeviceSize();
+  const defaultValueMysteriesTabs = MysteriesByDay[weekdayNumber]
+  const window = useDeviceSize()
 
+  const keysOrdinal = [
+    'firstMisteryOrdinary',
+    'secondMisteryOrdinary',
+    'thirdMisteryOrdinary',
+    'fourthMisteryOrdinary',
+    'fifthMisteryOrdinary'
+  ]
 
   return (
     <>
@@ -230,36 +185,30 @@ const RosaryPray = (props: RosaryPrayProps) => {
           defaultActiveKey={defaultValueMysteriesTabs}
           size="small"
           tabBarStyle={{
-            justifyContent: "center",
-            flex: "1 1 0%",
+            justifyContent: 'center',
+            flex: '1 1 0%',
             paddingBottom: 20,
-            ...(window?.width >= 768 && { margin: "auto" })
+            ...(window?.width >= 768 && { margin: 'auto' })
           }}
           items={mysteries.map((value, index) => {
             const mysterySeries = mysteriesNamespaceKeys[value]
             const mysteries = new MysteriesSeries(mysterySeries)
 
-            let mysteriesCount = 0;
+            let mysteriesCount = 0
 
             return {
               label: `${mysterySeries.name}`,
               key: mysterySeries.key,
               children: (
-                <Tabs
-                  tabPosition={window.width >= 1024 ? "left" : "top"}
-                  defaultActiveKey="1"
-                  key={`mystery__${index}`}
-                  tabBarGutter={window.width >= 1024 ? 0 : undefined}
-                  size="small"
+                <DesktopOrMobileTabs
+                  index={index}
                   items={rosaryPrayerList.map((value, index) => {
-                    const collapsible = value?.collapsible;
+                    const collapsible = value?.collapsible
 
                     if (value.type === Pray) {
                       const prays = collapsible?.map(element => {
-                        const translatedPrayElement = prayNamespaceKeys[element.key]
-
                         return {
-                          pray: new Pray(translatedPrayElement),
+                          pray: new Pray({ key: element?.key }),
                           times: element.times
                         }
                       })
@@ -267,34 +216,38 @@ const RosaryPray = (props: RosaryPrayProps) => {
                       return {
                         label: (
                           <>
-                            {index + 1} - {t(value.key)}
+                            {t(value.key)}
                           </>
                         ),
                         key: value.key,
-                        children: <MultipleCollapsiblePrays width={window?.width} prays={prays} />,
-                      };
+                        children: <MultipleCollapsiblePrays prays={prays} />
+                      }
                     } else if (value.type === Mystery) {
                       const mystery = mysteries.mysteries[mysteriesCount]
 
                       mysteriesCount = mysteriesCount + 1
 
                       const prays = collapsible?.map(element => {
-                        const translatedPrayElement = prayNamespaceKeys[element.key]
-
                         return {
-                          pray: new Pray(translatedPrayElement),
+                          pray: new Pray({ key: element?.key }),
                           times: element.times
                         }
                       })
 
+                      const label = keysOrdinal[index - 1]
+
+                      const header = {
+                        title: mystery.name,
+                        description: mystery.event
+                      }
+
                       return {
-                        label: (
-                          <>
-                            {index + 1} - {mystery.name}
-                          </>
-                        ),
-                        key: mystery.name + index,
-                        children: <MultipleCollapsiblePrays width={window?.width} header={mystery.event} prays={prays} />,
+                        label: t(`${label ?? ' '}`),
+                        key: mystery.name + index.toString(),
+                        children: <MultipleCollapsiblePrays
+                          header={header}
+                          prays={prays}
+                          />
                       }
                     }
 
@@ -304,7 +257,7 @@ const RosaryPray = (props: RosaryPrayProps) => {
                     }
                   })} />
               )
-            };
+            }
           })}
         />
       </Col>

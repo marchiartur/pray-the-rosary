@@ -5,6 +5,11 @@ export {
 } from './select/index.interface'
 export { default as MainLayout } from './layout'
 
+export { Title } from './typography'
+export {
+  type TitleProps
+} from './typography/Title.interface'
+
 export { Text } from './typography'
 export {
   type TextProps

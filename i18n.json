@@ -15,7 +15,11 @@
             "prays",
             "mysteries",
             "index",
-            "date"
+            "date",
+            "menu"
+        ],
+        "/daily": [
+            "daily"
         ]
     }
 }

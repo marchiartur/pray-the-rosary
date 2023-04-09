@@ -1,29 +1,33 @@
+.col,
 .row,
-.titleRow {
-    width: 95vw;
+.rowDescription {
     margin: auto;
     justify-content: center;
 }
 
-.titleRow {
+.row {
     margin-top: 25px;
     margin-bottom: 10px;
 }
 
 @media screen and (min-width: 1024px) {
-    .row {
+    .col {
         width: 70vw;
     }
 }
 
 @media screen and (min-width: 1400px) {
-    .row {
+    .col {
         width: 60vw;
     }
 }
 
 @media screen and (min-width: 1700px) {
-    .row {
+    .col {
         width: 50vw;
     }
+}
+
+.tabs {
+    margin-top: 30px !important;
 }

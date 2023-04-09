@@ -1,30 +1,33 @@
 import { useEffect, useState } from 'react'
 
-const useDeviceSize = () => {
+interface StateI {
+  width: number
+  height: number
+}
 
-    const [state, setState] = useState({
-        width: 0,
-        height: 0
-    });
+const useDeviceSize = (): StateI => {
+  const [state, setState] = useState({
+    width: 0,
+    height: 0
+  })
 
-    const handle = () => {
-        setState({
-            width: window.innerWidth,
-            height: window.innerHeight
-        })
+  const handle = (): void => {
+    setState({
+      width: window.innerWidth,
+      height: window.innerHeight
+    })
+  }
+
+  useEffect(() => {
+    handle()
+    window.addEventListener('resize', handle)
+
+    return () => {
+      window.removeEventListener('resize', handle)
     }
+  }, [])
 
-
-    useEffect(() => {
-        handle()
-        window.addEventListener('resize', handle)
-
-        return () => {
-            window.removeEventListener('resize', handle)
-        }
-    }, [])
-
-    return state;
+  return state
 }
 
 export default useDeviceSize

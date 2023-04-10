@@ -11,8 +11,6 @@ interface DesktopOrMobileTabsProps extends TabsProps {
 const DesktopOrMobileTabs = ({ index, items, className }: DesktopOrMobileTabsProps): JSX.Element => {
   const window = useDeviceSize()
 
-  console.log(className)
-
   return (
     <Tabs
       tabPosition={window.width >= 1024 ? 'left' : 'top'}

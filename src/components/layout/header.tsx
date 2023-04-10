@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, type RefObject } from 'react'
 import { Drawer, Layout, Menu, Row } from 'antd'
 import SelectCountry from 'src/domains/countries/SelectCountry'
 import styles from './header.module.css'
@@ -6,7 +6,6 @@ import setLanguage from 'next-translate/setLanguage'
 import useTranslation from 'next-translate/useTranslation'
 import { setDateFnsDefaultOptions } from 'src/helpers/date'
 import { MENU_NAMESPACE } from 'src/helpers/namespaces'
-import { useElementSize } from 'usehooks-ts'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useDeviceSize from 'src/hooks/useDeviceSize'
@@ -27,7 +26,7 @@ const Header: React.FunctionComponent = (): JSX.Element => {
   const { t, lang } = useTranslation(MENU_NAMESPACE)
   const router = useRouter()
 
-  const [rowRef, { width: elementWidth }] = useElementSize()
+  const ref: RefObject<HTMLDivElement> = useRef(null)
   const [isDrawerVisible, setIsDrawerVisible] = useState(false)
 
   const window = useDeviceSize()
@@ -69,7 +68,7 @@ const Header: React.FunctionComponent = (): JSX.Element => {
             items={ITEMS}
             style={{
               float: 'left',
-              width: `calc(100% - ${elementWidth}px)`
+              width: `calc(100% - ${ref.current?.getBoundingClientRect().width ?? 0}px)`
             }}
             defaultSelectedKeys={renderDefaultSelectedKeys()}
           />
@@ -80,7 +79,7 @@ const Header: React.FunctionComponent = (): JSX.Element => {
         </>
           )}
 
-      <Row justify="end" align="middle" className={styles.headerRow} ref={rowRef} >
+      <Row justify="end" align="middle" className={styles.headerRow} ref={ref} >
         <SelectCountry
           handleOnSelect={onSelectLanguage}
           defaultValue={lang}

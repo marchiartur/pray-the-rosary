@@ -51,8 +51,6 @@ const Daily = (): JSX.Element => {
     }
   })
 
-  console.log(styles.tabs)
-
   return (
     <Col className={styles.col}>
       <Row className={styles.row}>

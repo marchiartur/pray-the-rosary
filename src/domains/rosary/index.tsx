@@ -1,14 +1,27 @@
+import { Pray, PraysNames } from '../prays/interface'
+import styles from './index.module.css'
+import { Col, Row, Space, Tabs, Tag } from 'antd'
+import { format, getDay, setDay } from 'date-fns'
 import useTranslation from 'next-translate/useTranslation'
 import React from 'react'
 import { Text } from 'src/components'
-import { Pray, PraysNames } from '../prays/interface'
-import { format, getDay } from 'date-fns'
-import { MYSTERIES_NAMESPACE, type MysteriesNamespaceAttributes, MysteriesByDay, RosaryMysteriesNames, Mystery, MysteriesSeries } from 'src/domains/mysteries/interface'
-import { Col, Row, Tabs } from 'antd'
-import { type CommonNamespaceAttribute, DATE_NAMESPACE, INDEX_PAGE_NAME } from 'src/helpers/namespaces'
-import useDeviceSize from 'src/hooks/useDeviceSize'
-import MultipleCollapsiblePrays from 'src/components/multipleCollapsiblePrays'
 import DesktopOrMobileTabs from 'src/components/desktopOrMobileTabs'
+import MultipleCollapsiblePrays from 'src/components/multipleCollapsiblePrays'
+import {
+  MYSTERIES_NAMESPACE,
+  type MysteriesNamespaceAttributes,
+  MysteriesByDay,
+  RosaryMysteriesNames,
+  Mystery,
+  MysteriesSeries,
+  DaysOfTheWeekOfTheMysteries
+} from 'src/domains/mysteries/interface'
+import {
+  type CommonNamespaceAttribute,
+  DATE_NAMESPACE,
+  INDEX_PAGE_NAME
+} from 'src/helpers/namespaces'
+import useDeviceSize from 'src/hooks/useDeviceSize'
 
 interface RosaryPrayProps {
   children?: React.ReactNode
@@ -61,7 +74,7 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
       collapsible: []
     },
     {
-      key: PraysNames.CREED,
+      key: PraysNames.APOSTLES_CREED,
       times: 1,
       type: Pray,
       collapsible: []
@@ -156,8 +169,16 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
 
   const { t } = useTranslation(INDEX_PAGE_NAME)
 
-  const mysteriesNamespaceKeys: MysteriesNamespaceAttributes = t(`${MYSTERIES_NAMESPACE}:.`, { count: 1 }, { returnObjects: true })
-  const date: CommonNamespaceAttribute = t(`${DATE_NAMESPACE}:.`, { count: 1 }, { returnObjects: true })
+  const mysteriesNamespaceKeys: MysteriesNamespaceAttributes = t(
+    `${MYSTERIES_NAMESPACE}:.`,
+    { count: 1 },
+    { returnObjects: true }
+  )
+  const date: CommonNamespaceAttribute = t(
+    `${DATE_NAMESPACE}:.`,
+    { count: 1 },
+    { returnObjects: true }
+  )
 
   const defaultValueMysteriesTabs = MysteriesByDay[weekdayNumber]
   const window = useDeviceSize()
@@ -175,12 +196,13 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
       <Col span={24}>
         <Row justify="center">
           <Text>
-            {date?.todayIs}{' '}{weekdayName} ({mysteriesNamespaceKeys[defaultValueMysteriesTabs].name})
+            {date?.todayIs} {weekdayName} (
+            {mysteriesNamespaceKeys[defaultValueMysteriesTabs].name})
           </Text>
         </Row>
       </Col>
 
-      <Col span={24}>
+      <Col span={24} className={styles.col}>
         <Tabs
           defaultActiveKey={defaultValueMysteriesTabs}
           size="small"
@@ -190,14 +212,40 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
             paddingBottom: 20,
             ...(window?.width >= 768 && { margin: 'auto' })
           }}
-          items={mysteries.map((value, index) => {
+          items={mysteries.map((value: string, index) => {
             const mysterySeries = mysteriesNamespaceKeys[value]
             const mysteries = new MysteriesSeries(mysterySeries)
 
             let mysteriesCount = 0
 
+            const numberDays: number[] =
+              DaysOfTheWeekOfTheMysteries[
+                value as keyof typeof DaysOfTheWeekOfTheMysteries
+              ]
+
+            let formattedLabelDays = ''
+
+            numberDays.forEach((dayAsNumber, index) => {
+              const formattedDayOfTheWeek = format(
+                setDay(new Date(), dayAsNumber),
+                'EEEEEE'
+              )
+
+              formattedLabelDays += `${formattedDayOfTheWeek}`
+
+              if (index < numberDays.length - 1) {
+                formattedLabelDays += ', '
+              }
+            })
+
             return {
-              label: `${mysterySeries.name}`,
+              label: (
+                <Space>
+                  {mysterySeries.name}
+
+                  <Tag>{formattedLabelDays}</Tag>
+                </Space>
+              ),
               key: mysterySeries.key,
               children: (
                 <DesktopOrMobileTabs
@@ -206,7 +254,7 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
                     const collapsible = value?.collapsible
 
                     if (value.type === Pray) {
-                      const prays = collapsible?.map(element => {
+                      const prays = collapsible?.map((element) => {
                         return {
                           pray: new Pray({ key: element?.key }),
                           times: element.times
@@ -214,11 +262,7 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
                       })
 
                       return {
-                        label: (
-                          <>
-                            {t(value.key)}
-                          </>
-                        ),
+                        label: t(value.key),
                         key: value.key,
                         children: <MultipleCollapsiblePrays prays={prays} />
                       }
@@ -227,7 +271,7 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
 
                       mysteriesCount = mysteriesCount + 1
 
-                      const prays = collapsible?.map(element => {
+                      const prays = collapsible?.map((element) => {
                         return {
                           pray: new Pray({ key: element?.key }),
                           times: element.times
@@ -244,10 +288,12 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
                       return {
                         label: t(`${label ?? ' '}`),
                         key: mystery.name + index.toString(),
-                        children: <MultipleCollapsiblePrays
-                          header={header}
-                          prays={prays}
+                        children: (
+                          <MultipleCollapsiblePrays
+                            header={header}
+                            prays={prays}
                           />
+                        )
                       }
                     }
 
@@ -255,7 +301,8 @@ const RosaryPray = (props: RosaryPrayProps): JSX.Element => {
                       label: '',
                       key: Math.random().toString()
                     }
-                  })} />
+                  })}
+                />
               )
             }
           })}

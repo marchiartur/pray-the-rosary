@@ -1,4 +1,5 @@
 export default {
+  browserTitle: 'Pray the Rosary',
   title: 'How to pray the Rosary?',
   initialPraysLabel: 'Initial prays',
   finalPraysLabel: 'Closing prays',

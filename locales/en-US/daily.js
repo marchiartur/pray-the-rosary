@@ -11,7 +11,7 @@ export default {
     afterWakeUpAndDressUp: {
       name: 'After getting up and dressing up',
       description: 'I adore You, my God, and I love You with all my heart. I give You thanks for creating me, making me a Christian, and preserving me through the night. I offer You all my actions and ask You to keep me from sin and from all evil this day. Amen.',
-      prays: [PraysNames.OUR_FATHER, PraysNames.HAIL_MARY, PraysNames.CREED, PraysNames.ACT_OF_FAITH, PraysNames.ACT_OF_HOPE, PraysNames.ACT_OF_LOVE]
+      prays: [PraysNames.OUR_FATHER, PraysNames.HAIL_MARY, PraysNames.APOSTLES_CREED, PraysNames.ACT_OF_FAITH, PraysNames.ACT_OF_HOPE, PraysNames.ACT_OF_LOVE]
     },
     beforeWork: {
       name: 'Before work',
@@ -29,7 +29,7 @@ export default {
     beforeSleep: {
       name: 'Before sleep',
       description: 'I place myself in the presence of God, make a brief examination of conscience, and ask God\'s forgiveness for the sins I have committed during the day.',
-      prays: [PraysNames.OUR_FATHER, PraysNames.HAIL_MARY, PraysNames.CREED, PraysNames.ACT_OF_FAITH, PraysNames.ACT_OF_HOPE, PraysNames.ACT_OF_LOVE]
+      prays: [PraysNames.OUR_FATHER, PraysNames.HAIL_MARY, PraysNames.APOSTLES_CREED, PraysNames.ACT_OF_FAITH, PraysNames.ACT_OF_HOPE, PraysNames.ACT_OF_LOVE]
     },
     beforeFallingSleep: {
       name: 'Before falling asleep',

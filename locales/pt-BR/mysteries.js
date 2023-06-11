@@ -5,23 +5,23 @@ export default {
     name: 'Mistérios Gloriosos',
     first: {
       name: 'Ressurreição de Jesus',
-      event: "No primeiro dia da semana, muito cedo, dirigiram- se ao sepulcro com os aromas que haviam preparado. Acharam a pedra removida longe da abertura do sepulcro. Entraram, mas não encontraram o corpo do Senhor Jesus.Não sabiam elas o que pensar, quando apareceram em frente delas dois personagens com vestes resplandecentes.Como estivessem amedrontadas e voltassem o rosto para o chão, disseram- lhes eles: 'Por que buscais entre os mortos aquele que está vivo? Não está aqui, mas ressuscitou'"
+      event: 'No primeiro dia da semana, muito cedo, dirigiram- se ao sepulcro com os aromas que haviam preparado. Acharam a pedra removida longe da abertura do sepulcro. Entraram, mas não encontraram o corpo do Senhor Jesus. Não sabiam elas o que pensar, quando apareceram em frente delas dois personagens com vestes resplandecentes. Como estivessem amedrontadas e voltassem o rosto para o chão, disseram- lhes eles: "Por que buscais entre os mortos aquele que está vivo? Não está aqui, mas ressuscitou."'
     },
     second: {
       name: 'Ascensão de Jesus ao Céu',
-      event: 'Depois que o Senhor Jesus lhes falou, foi levado ao céu e está sentado à direita de Deus'
+      event: 'Depois que o Senhor Jesus lhes falou, foi levado ao céu e está sentado à direita de Deus.'
     },
     third: {
       name: 'Vinda do Espírito Santo sobre os Apóstolos',
-      event: 'Chegando o dia de Pentecostes, estavam todos reunidos no mesmo lugar. De repente, veio do céu um ruído, como se soprasse um vento impetuoso, e encheu toda a casa onde estavam sentados. Apareceu-lhes então uma espécie de línguas de fogo que se repartiram e pousaram sobre cada um deles. Ficaram todos cheios do Espírito Santo e começaram a falar em línguas, conforme o Espírito Santo lhes concedia que falassem'
+      event: 'Chegando o dia de Pentecostes, estavam todos reunidos no mesmo lugar. De repente, veio do céu um ruído, como se soprasse um vento impetuoso, e encheu toda a casa onde estavam sentados. Apareceu-lhes então uma espécie de línguas de fogo que se repartiram e pousaram sobre cada um deles. Ficaram todos cheios do Espírito Santo e começaram a falar em línguas, conforme o Espírito Santo lhes concedia que falassem.'
     },
     fourth: {
       name: 'Assunção de Maria',
-      event: 'Por isto, desde agora, me proclamarão bem-aventurada todas as gerações, porque realizou em mim maravilhas aquele que é poderoso e cujo nome é Santo'
+      event: 'Por isto, desde agora, me proclamarão bem-aventurada todas as gerações, porque realizou em mim maravilhas aquele que é poderoso e cujo nome é Santo.'
     },
     fifth: {
       name: 'Coroação de Maria no Céu',
-      event: 'Apareceu em seguida um grande sinal no céu: uma Mulher revestida do sol, a lua debaixo dos seus pés e na cabeça uma coroa de doze estrelas'
+      event: 'Apareceu em seguida um grande sinal no céu: uma Mulher revestida do sol, a lua debaixo dos seus pés e na cabeça uma coroa de doze estrelas.'
     },
     key: RosaryMysteriesNames.GLORIOUS
   },
@@ -53,7 +53,7 @@ export default {
     name: 'Mistérios Gozosos',
     first: {
       name: 'Anunciação a Maria',
-      event: 'No sexto mês, o anjo Gabriel foi enviado por Deus a uma cidade da Galiléia, chamada Nazaré,  a uma virgem desposada com um homem que se chamava José, da casa de Davi e o nome da virgem era Maria'
+      event: 'No sexto mês, o anjo Gabriel foi enviado por Deus a uma cidade da Galiléia, chamada Nazaré, a uma virgem desposada com um homem que se chamava José, da casa de Davi e o nome da virgem era Maria'
     },
     second: {
       name: 'Visitação de Nossa Senhora a sua prima Isabel',
@@ -72,29 +72,29 @@ export default {
       event: 'Seus pais iam todos os anos a Jerusalém para a festa da Páscoa. Tendo ele atingido doze anos, subiram a Jerusalém, segundo o costume da festa. Acabados os dias da festa, quando voltavam, ficou o menino Jesus em Jerusalém, sem que os seus pais o percebessem... Três dias depois o acharam no templo, sentado no meio dos doutores, ouvindo- os e interrogando- os.Todos os que o ouviam estavam maravilhados da sabedoria de suas respostas'
     },
     key: RosaryMysteriesNames.JOYFUL
-  },
-  [RosaryMysteriesNames.LUMINOUS]: {
-    name: 'Mistérios Luminosos',
-    first: {
-      name: 'Batismo de Jesus no rio Jordão',
-      event: 'Depois que Jesus foi batizado, saiu logo da água. Eis que os céus se abriram e viu descer sobre ele, em forma de pomba, o Espírito de Deus. E do céu baixou uma voz: Eis meu Filho muito amado em quem ponho minha afeição'
-    },
-    second: {
-      name: 'Auto-revelação de Jesus nas Bodas de Caná',
-      event: 'Três dias depois, celebravam-se bodas em Caná da Galiléia, e achava-se ali a mãe de Jesus. Também foram convidados Jesus e os seus discípulos. Como viesse a faltar vinho, a mãe de Jesus disse-lhe: Eles já não têm vinho. Respondeu-lhe Jesus: Mulher, isso compete a nós? Minha hora ainda não chegou. Disse, então, sua mãe aos serventes: Fazei o que ele vos disser'
-    },
-    third: {
-      name: 'Anúncio do Reino de Deus',
-      event: 'Completou-se o tempo e o Reino de Deus está próximo; fazei penitência e crede no Evangelho'
-    },
-    fourth: {
-      name: 'Transfiguração de Jesus',
-      event: 'Seis dias depois, Jesus tomou consigo Pedro, Tiago e João, seu irmão, e conduziu-os à parte a uma alta montanha.Lá se transfigurou na presença deles: seu rosto brilhou como o sol, suas vestes tornaram-se resplandecentes de brancura'
-    },
-    fifth: {
-      name: 'Instituição da Eucaristia',
-      event: 'Durante a refeição, Jesus tomou o pão, benzeu-o, partiu-o e o deu aos discípulos, dizendo: Tomai e comei, isto é meu corpo'
-    },
-    key: RosaryMysteriesNames.LUMINOUS
   }
+  // [RosaryMysteriesNames.LUMINOUS]: {
+  //   name: 'Mistérios Luminosos',
+  //   first: {
+  //     name: 'Batismo de Jesus no rio Jordão',
+  //     event: 'Depois que Jesus foi batizado, saiu logo da água. Eis que os céus se abriram e viu descer sobre ele, em forma de pomba, o Espírito de Deus. E do céu baixou uma voz: Eis meu Filho muito amado em quem ponho minha afeição'
+  //   },
+  //   second: {
+  //     name: 'Auto-revelação de Jesus nas Bodas de Caná',
+  //     event: 'Três dias depois, celebravam-se bodas em Caná da Galiléia, e achava-se ali a mãe de Jesus. Também foram convidados Jesus e os seus discípulos. Como viesse a faltar vinho, a mãe de Jesus disse-lhe: Eles já não têm vinho. Respondeu-lhe Jesus: Mulher, isso compete a nós? Minha hora ainda não chegou. Disse, então, sua mãe aos serventes: Fazei o que ele vos disser'
+  //   },
+  //   third: {
+  //     name: 'Anúncio do Reino de Deus',
+  //     event: 'Completou-se o tempo e o Reino de Deus está próximo; fazei penitência e crede no Evangelho'
+  //   },
+  //   fourth: {
+  //     name: 'Transfiguração de Jesus',
+  //     event: 'Seis dias depois, Jesus tomou consigo Pedro, Tiago e João, seu irmão, e conduziu-os à parte a uma alta montanha.Lá se transfigurou na presença deles: seu rosto brilhou como o sol, suas vestes tornaram-se resplandecentes de brancura'
+  //   },
+  //   fifth: {
+  //     name: 'Instituição da Eucaristia',
+  //     event: 'Durante a refeição, Jesus tomou o pão, benzeu-o, partiu-o e o deu aos discípulos, dizendo: Tomai e comei, isto é meu corpo'
+  //   },
+  //   key: RosaryMysteriesNames.LUMINOUS
+  // }
 }

@@ -1,13 +1,13 @@
-import create, { State } from "zustand";
+import create, { type State } from 'zustand'
 
 interface LinkState extends State {
-    router: any;
-    dom: any;
+  router: any
+  dom: any
 }
 
 const useStore = create<LinkState>((set, get) => ({
-    router: null,
-    dom: null,
-}));
+  router: null,
+  dom: null
+}))
 
-export default useStore;
+export default useStore

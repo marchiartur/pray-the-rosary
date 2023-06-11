@@ -72,29 +72,29 @@ export default {
       event: 'Mary and Joseph find Jesus teaching in the temple after he had been missing for three days.'
     },
     key: RosaryMysteriesNames.JOYFUL
-  },
-  [RosaryMysteriesNames.LUMINOUS]: {
-    name: 'The Luminous Mysteries',
-    first: {
-      name: 'The Baptism of Jesus in the Jordan',
-      event: 'John the Baptist baptizes Jesus in the Jordan River.'
-    },
-    second: {
-      name: 'The Wedding at Cana',
-      event: 'Jesus performs his first miracle by turning water into wine at a wedding in Cana.'
-    },
-    third: {
-      name: 'The Proclamation of the Kingdom',
-      event: 'Jesus announces the coming of the Kingdom of God and calls people to repentance.'
-    },
-    fourth: {
-      name: 'The Transfiguration',
-      event: 'Jesus is transfigured before his apostles, and his face and clothes become dazzlingly bright.'
-    },
-    fifth: {
-      name: 'The Institution of the Eucharist',
-      event: 'Jesus celebrates the Last Supper with his apostles and institutes the Eucharist.'
-    },
-    key: RosaryMysteriesNames.LUMINOUS
   }
+  // [RosaryMysteriesNames.LUMINOUS]: {
+  //   name: 'The Luminous Mysteries',
+  //   first: {
+  //     name: 'The Baptism of Jesus in the Jordan',
+  //     event: 'John the Baptist baptizes Jesus in the Jordan River.'
+  //   },
+  //   second: {
+  //     name: 'The Wedding at Cana',
+  //     event: 'Jesus performs his first miracle by turning water into wine at a wedding in Cana.'
+  //   },
+  //   third: {
+  //     name: 'The Proclamation of the Kingdom',
+  //     event: 'Jesus announces the coming of the Kingdom of God and calls people to repentance.'
+  //   },
+  //   fourth: {
+  //     name: 'The Transfiguration',
+  //     event: 'Jesus is transfigured before his apostles, and his face and clothes become dazzlingly bright.'
+  //   },
+  //   fifth: {
+  //     name: 'The Institution of the Eucharist',
+  //     event: 'Jesus celebrates the Last Supper with his apostles and institutes the Eucharist.'
+  //   },
+  //   key: RosaryMysteriesNames.LUMINOUS
+  // }
 }

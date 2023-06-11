@@ -1,3 +1,3 @@
 export default {
-    "todayIs": "Today is",
+  todayIs: 'Today is'
 }

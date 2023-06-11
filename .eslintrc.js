@@ -22,7 +22,10 @@ module.exports = {
     "no-use-before-define": ["error", { "variables": false }],
     "@typescript-eslint/key-spacing": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "space-before-function-paren": "off",
+    "@typescript-eslint/space-before-function-paren": "off",
+    "multiline-ternary": "off",
   },
   settings: {
     "react": {

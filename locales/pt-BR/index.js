@@ -1,5 +1,6 @@
 export default {
-  title: 'Como rezar o rosário?',
+  browserTitle: 'Reze o Rosário',
+  title: 'Como rezar o Rosário?',
   initialPraysLabel: 'Ínicio',
   finalPraysLabel: 'Fechamento',
   firstMisteryOrdinary: 'Primeiro mistério',
